@@ -11,7 +11,29 @@
 <body>
     <header>
         <h1>Things To Do</h1>
-        
     </header>
+    <section id="addKoala">
+        <h2>Add a new task:</h2>
+        <button type="button" id="addButton">Add Task</button>
+        <input type="text" id="person" value="" placeholder="person">
+        <input type="text" id="taskName" value="" placeholder="taskName">
+        <input type="text" id="taskNotes" value="" placeholder="taskNotes">
+        <input type="text" id="taskComplete" value="" placeholder="taskComplete">
+    </section>
+    <section>
+        <h2>All Tasks:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Person</th>
+              <th>Task Name</th>
+              <th>Task Notes</th>
+              <th>Task Complete</th>
+            </tr>
+          </thead>
+          <tbody id="viewTasks">
+          </tbody>
+        </table>
+      </section>
 </body>
 </html>
