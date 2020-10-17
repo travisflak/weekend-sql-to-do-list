@@ -35,7 +35,8 @@ We would recommend you spend some time thinking about how to approach this probl
 
 ### Create a Database
 
-[] Be sure to create a new database through Postico. Use the name `weekend-to-do-app`. You will need to use this name in your database connection configuration on your server.
+[x] Be sure to create a new database through Postico. Use the name `weekend-to-do-app`. 
+[] You will need to use this name in your database connection configuration on your server.
 
 ### Database Structure
 
