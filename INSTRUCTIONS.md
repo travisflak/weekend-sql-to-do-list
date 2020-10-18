@@ -13,7 +13,7 @@ You are going to create a 'TO DO' application. This type of application is very 
 
 **Here are the specific components for the challenge:**
 
-[]* Create a front end experience that allows a user to create a Task.
+[x]* Create a front end experience that allows a user to create a Task.
 []* When the Task is created, it should be stored inside of a database (SQL)
 []* Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
 []* Each Task should have an option to 'Complete' or 'Delete'.
@@ -25,7 +25,7 @@ You are going to create a 'TO DO' application. This type of application is very 
 ### Styling
 
 Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
-  []- background color of the page
+  [x]- background color of the page
   []- font family and size
   []- text color & or background color of tasks *to show whether or not they have been completed*
 
