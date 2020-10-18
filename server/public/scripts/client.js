@@ -4,6 +4,8 @@ $( document ).ready( function(){
     console.log( 'JQ' );
     // Establish Click Listeners
     setupClickListeners();
+
+    getToDos();
 });
 
 function setupClickListeners() {
@@ -30,19 +32,19 @@ function getToDos() {
             if (response[i].taskComplete == "y" || response[i].taskComplete == "Y") {
                 el.append(`
                     <tr>
-                        <td>${respnse[i].person}</td>
-                        <td>${respnse[i].taskName}</td>
-                        <td>${respnse[i].taskNotes}</td>
-                        <td>${respnse[i].taskComplete}</td>
+                        <td>${response[i].person}</td>
+                        <td>${response[i].taskName}</td>
+                        <td>${response[i].taskNotes}</td>
+                        <td>${response[i].taskComplete}</td>
                     </tr>
                 `)
             } else {
                 el.append (`
                     <tr data-id=${response[i]}>
-                    <td>${respnse[i].person}</td>
-                        <td>${respnse[i].taskName}</td>
-                        <td>${respnse[i].taskNotes}</td>
-                        <td>${respnse[i].taskComplete}</td>
+                    <td>${response[i].person}</td>
+                        <td>${response[i].taskName}</td>
+                        <td>${response[i].taskNotes}</td>
+                        <td>${response[i].taskComplete}</td>
                         <td><button class="ready">Ready</button></td>
                     </tr>
                 `)
@@ -50,7 +52,6 @@ function getToDos() {
             }
     }).catch(function(error) {
         console.log('error', error);
-        res.sendStatus(500)
     });
 }//end getToDos
 
