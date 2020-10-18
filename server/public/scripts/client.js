@@ -23,11 +23,11 @@ function getToDos() {
     //ajax call to server to get todos
     $.ajax( {
         method: 'GET',
-        url: '/router'
+        url: '/tasksToDo'
     }).then( function ( response ) {
         console.log('back from server with', response );
         for (let i = 0; i < response.length; i++) {
-            if (response[i]).taskComplete == "y" || (response[i]).taskComplete == "Y") {
+            if (response[i].taskComplete == "y" || response[i].taskComplete == "Y") {
                 el.append(`
                     <tr>
                         <td>${respnse[i].person}</td>
@@ -63,7 +63,7 @@ function saveToDo( newToDo ) {
     //ajax call to server to get ToDos
     $.ajax({
         type: 'POST',
-        url: '/router',
+        url: '/tasksToDo',
         data: newToDo,
     }).then ( function ( response ) {
         $('#person').val(''),
