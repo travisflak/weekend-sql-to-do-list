@@ -3,9 +3,12 @@ console.log('hello form js');
 $( document ).ready( function(){
     console.log( 'JQ' );
     // Establish Click Listeners
-    setupClickListeners();
-
+    // setupClickListeners();
+    $( '#addButton' ).on( 'click', saveToDo );
     getToDos();
+        $('#viewToDos').on('click', '.ready', markReady);
+        $('#viewToDos').on('click', '.delete', deleteToDo);//cahnge this to delete button
+
 });
 
 function setupClickListeners() {
@@ -31,21 +34,23 @@ function getToDos() {
         for (let i = 0; i < response.length; i++) {
             if (response[i].taskComplete == "y" || response[i].taskComplete == "Y") {
                 el.append(`
-                    <tr>
+                    <tr data-id=${response[i].id}>
                         <td>${response[i].person}</td>
                         <td>${response[i].taskName}</td>
                         <td>${response[i].taskNotes}</td>
                         <td>${response[i].taskComplete}</td>
+                        <td><button class="delete">DELETE</button></td>
                     </tr>
                 `)
             } else {
                 el.append (`
-                    <tr data-id=${response[i]}>
-                    <td>${response[i].person}</td>
+                    <tr data-id=${response[i].id}>
+                        <td>${response[i].person}</td>
                         <td>${response[i].taskName}</td>
                         <td>${response[i].taskNotes}</td>
                         <td>${response[i].taskComplete}</td>
                         <td><button class="ready">Ready</button></td>
+                        <td><button class="delete">DELETE</button></td>
                     </tr>
                 `)
             }
@@ -55,11 +60,33 @@ function getToDos() {
     });
 }//end getToDos
 
-
+//PUT
+function markReady(){
+    let todoId=$(this).closest('tr').data('id');
+    console.log('clicked', todoId);
+    $.ajax({
+        method: 'PUT',
+        url: `/tasksToDo/${todoId}`,
+        data: {
+            transfer: todoId
+        }
+    }).then(function (response){
+        console.log('back from server PUT request', response);
+        getToDos()
+    }).catch(function(error){
+        console.log('error', error);  
+    })
+}//end markReady
 
 
 //POST
-function saveToDo( newToDo ) {
+function saveToDo() {
+    let newToDo = {
+        person: $('#person').val(),
+        taskName: $('#taskName').val(),
+        taskNotes: $('#taskNotes').val(),
+        taskComplete: $('#taskComplete').val(),
+    };
     console.log( 'In saveToDo', newToDo );
     //ajax call to server to get ToDos
     $.ajax({
@@ -75,12 +102,25 @@ function saveToDo( newToDo ) {
     });
 }//end saveToDo
 
-//PUT
-
-
 
 //DELETE
-
+function deleteToDo () {
+    console.log('in DELETE function');
+    let todoId=$(this).closest('tr').data('id');
+    console.log('clicked', todoId);
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasksToDo/${todoId}`,
+        data: {
+            transfer: todoId
+        }
+    }).then(function (response){
+        console.log('back from server DELETE request', response);
+        getToDos()
+    }).catch(function(error){
+        console.log('error', error);  
+    });
+}
 
 
 
