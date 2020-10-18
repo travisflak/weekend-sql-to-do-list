@@ -50,10 +50,20 @@ router.put('/:idParam', (req,res) => {
     })
 })//end PUT
 
-
-
-
 //DELETE
+// router.put('/:idParam', (req,res) => {
+//     let param=req.params.idParam;
+//     let queryText= `UPDATE "tasksToDo" SET "taskComplete" = 'Y'
+//     WHERE "id" = $1;`;
+//     pool.query(queryText, [param])
+//     .then((result) => {
+//         console.log('in PUT request', req.params.idParam);
+//         res.sendStatus(200);
+//     }).catch((err) => {
+//         console.log('error in PUT pg', err);
+//         res.sendStatus(500);
+//     })
+// })//end DELETE
 
 
 
