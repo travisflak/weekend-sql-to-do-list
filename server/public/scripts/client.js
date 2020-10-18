@@ -75,9 +75,6 @@ function saveToDo( newToDo ) {
     });
 }//end saveToDo
 
-
-
-
 //PUT
 
 

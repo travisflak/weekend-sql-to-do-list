@@ -21,10 +21,18 @@ router.get('/', (req,res) => {
 
 //POST
 router.post('/', (req,res) => {
-
-});
-
-
+    let todo = req.body;
+    let queryText = `INSERT INTO "tasksToDo"( "person", "taskName", "taskNotes", "taskComplete" )
+    VALUES($1, $2, $3, $4, $5);`;
+    pool.query(queryText( [todo.person, todo.taskName, todo.taskNotes, todo.taskComplete])
+    .then((result)=>{
+        console.log('back from POST pg,', result.rows);
+        res.sendStatus(200);
+    }).catch((err)=>{
+        console.log('error in POST pg', err);
+        res.sendStatus(500);
+    }))
+})//end POST
 
 //PUT
 
@@ -32,8 +40,6 @@ router.post('/', (req,res) => {
 
 
 //DELETE
-
-
 
 
 
