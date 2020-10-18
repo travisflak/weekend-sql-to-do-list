@@ -6,9 +6,9 @@ $( document ).ready( function(){
     // setupClickListeners();
     $( '#addButton' ).on( 'click', saveToDo );
     getToDos();
-        $('#viewToDos').on('click', '.ready', markReady);
+        // $('#viewToDos').on('click', '.ready', markReady);
         $('#viewToDos').on('click', '.delete', deleteToDo);
-
+        $('#viewToDos').on('click', '.complete', completeToDo);
 });
 
 function setupClickListeners() {
@@ -40,6 +40,7 @@ function getToDos() {
                         <td>${response[i].taskNotes}</td>
                         <td>${response[i].taskComplete}</td>
                         <td><button class="delete">DELETE</button></td>
+                        <td><button class="complete">Complete</button></td>
                     </tr>
                 `)
             } else {
@@ -51,6 +52,7 @@ function getToDos() {
                         <td>${response[i].taskComplete}</td>
                         <td><button class="ready">Ready</button></td>
                         <td><button class="delete">DELETE</button></td>
+                        <td><button class="complete">Complete</button></td>
                     </tr>
                 `)
             }
@@ -61,7 +63,7 @@ function getToDos() {
 }//end getToDos
 
 //PUT
-function markReady(){
+function completeToDo(){
     let todoId=$(this).closest('tr').data('id');
     console.log('clicked', todoId);
     $.ajax({
@@ -76,7 +78,7 @@ function markReady(){
     }).catch(function(error){
         console.log('error', error);  
     })
-}//end markReady
+}//end completeToDo
 
 
 //POST
