@@ -16,7 +16,9 @@ function setupClickListeners() {
 
 
 //GET
-function getToDos
+function getToDos() {
+
+}//end getToDos
 
 
 
@@ -38,6 +40,10 @@ function saveToDo( newToDo ) {
     });
 }//end saveToDo
 
+
+
+
+//PUT
 
 
 
