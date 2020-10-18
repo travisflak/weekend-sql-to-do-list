@@ -7,7 +7,7 @@ $( document ).ready( function(){
     $( '#addButton' ).on( 'click', saveToDo );
     getToDos();
         $('#viewToDos').on('click', '.ready', markReady);
-        $('#viewToDos').on('click', '.delete', deleteToDo);//cahnge this to delete button
+        $('#viewToDos').on('click', '.delete', deleteToDo);
 
 });
 
