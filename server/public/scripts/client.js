@@ -16,17 +16,27 @@ function setupClickListeners() {
 
 
 //GET
+function getToDos
 
 
 
 
 //POST
 function saveToDo( newToDo ) {
-    console.log('In saveToDo', newToDo);
-    
-
-
-}
+    console.log( 'In saveToDo', newToDo );
+    //ajax call to server to get ToDos
+    $.ajax({
+        type: 'POST',
+        url: '/router',
+        data: newToDo,
+    }).then (function(response) {
+        $('#person').val(''),
+        $('#taskName').val(''),
+        $('#taskNotes').val(''),
+        $('#taskComplete').val(''),
+        getToDos();
+    });
+}//end saveToDo
 
 
 
