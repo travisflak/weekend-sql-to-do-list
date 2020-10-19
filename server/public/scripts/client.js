@@ -38,7 +38,7 @@ function getToDos() {
                         <td>${response[i].person}</td>
                         <td>${response[i].taskName}</td>
                         <td>${response[i].taskNotes}</td>
-                        <td>${response[i].taskComplete}</td>
+                        <td class="containerColor">${response[i].taskComplete}</td>
                         <td><button class="delete">DELETE</button></td>
                         <td><button class="complete">Complete</button></td>
                     </tr>
