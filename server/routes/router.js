@@ -36,7 +36,6 @@ router.post('/', (req,res) => {
 
 //PUT
 router.put('/:idParam', (req,res) => {
-    // console.log('in PUT request', req.params.idParam);
     let param=req.params.idParam;
     let queryText= `UPDATE "tasksToDo" SET "taskComplete" = 'Y'
     WHERE "id" = $1;`;
