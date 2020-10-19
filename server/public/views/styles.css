@@ -1,7 +1,18 @@
 body {
-    background-color: rgb(207, 204, 204);
+    background-color: rgb(200, 251, 255);
+    font-family: monospace;
+    font-size: larger;
 }
 
 .containerColor {
     background-color: rgb(116, 219, 124);
+}
+
+table {
+    border-collapse: collapse;
+    background-color: rgb(243, 243, 243);
+}
+  
+table, th, td {
+    border: 1px solid black;
 }
