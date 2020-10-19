@@ -4,15 +4,24 @@ body {
     font-size: larger;
 }
 
+h1 {
+    text-align: center;
+}
+
 .containerColor {
-    background-color: rgb(116, 219, 124);
+    background-color: rgb(194, 255, 199);
 }
 
 table {
     border-collapse: collapse;
     background-color: rgb(243, 243, 243);
+    text-align: center;
 }
   
 table, th, td {
     border: 1px solid black;
+}
+
+button {
+    background-color: #f8ffce;
 }

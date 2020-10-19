@@ -6,16 +6,14 @@ $( document ).ready( function(){
     // setupClickListeners();
     $( '#addButton' ).on( 'click', saveToDo );
     getToDos();
-        // $('#viewToDos').on('click', '.ready', markReady);
-        $('#viewToDos').on('click', '.delete', deleteToDo);
-        $('#viewToDos').on('click', '.complete', completeToDo);
+
+    $('#viewToDos').on('click', '.delete', deleteToDo);
+    $('#viewToDos').on('click', '.complete', completeToDo);
 });
 
 function setupClickListeners() {
     $( '#addButton' ).on( 'click', function() { //click listener for the add task button
         console.log( 'in addButton on click' )
-        //get user inputs and put into an object
-
     })
 }//end of setupClickListeners
 
@@ -50,7 +48,6 @@ function getToDos() {
                         <td>${response[i].taskName}</td>
                         <td>${response[i].taskNotes}</td>
                         <td>${response[i].taskComplete}</td>
-                        
                         <td><button class="delete">DELETE</button></td>
                         <td><button class="complete">Complete</button></td>
                     </tr>
